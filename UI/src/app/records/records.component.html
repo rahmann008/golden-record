@@ -1,0 +1,57 @@
+
+<div class="mat-elevation-z8" class="record_container">
+  <div class="table_container">
+    <mat-toolbar> 
+      <h2 class="table_name">Duplicate Records</h2>
+      <span  class="search">
+        <mat-icon>search</mat-icon>
+        <input type="text" class="searchbox" placeholder="Find user..." (keyup)="searchRecord($any($event.target).value)">
+      </span>
+      <div class="commonactions">
+        <button class="download_button" (click)="downLoadList()" matTooltip="only source records"><span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024"><path fill="currentColor" d="M505.7 661a8 8 0 0 0 12.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"/></svg></span></button>
+        <button class="download_button" [disabled]="isRecordUpdated" (click)="downloadAllmergeRecords()" matTooltip="Download Merged Records"><span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024"><path fill="currentColor" d="M505.7 661a8 8 0 0 0 12.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"/></svg></span></button>  
+        <button class="download_button" (click)="mergeAllRecords()" [matTooltip]="getState()"><span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16"><path fill="currentColor" d="M13.273 7.73a2.51 2.51 0 0 0-3.159-.31a2.5 2.5 0 0 0-.921 1.12a2.23 2.23 0 0 0-.13.44a4.52 4.52 0 0 1-4-4a2.23 2.23 0 0 0 .44-.13a2.5 2.5 0 0 0 1.54-2.31a2.45 2.45 0 0 0-.19-1A2.48 2.48 0 0 0 5.503.19a2.45 2.45 0 0 0-1-.19a2.5 2.5 0 0 0-2.31 1.54a2.52 2.52 0 0 0 .54 2.73c.35.343.79.579 1.27.68v5.1a2.411 2.411 0 0 0-.89.37a2.5 2.5 0 1 0 3.47 3.468a2.5 2.5 0 0 0 .42-1.387a2.45 2.45 0 0 0-.19-1a2.48 2.48 0 0 0-1.81-1.49v-2.4a5.52 5.52 0 0 0 2 1.73a5.65 5.65 0 0 0 2.09.6a2.5 2.5 0 0 0 4.95-.49a2.51 2.51 0 0 0-.77-1.72zm-8.2 3.38c.276.117.512.312.68.56a1.5 1.5 0 0 1-2.08 2.08a1.55 1.55 0 0 1-.56-.68a1.49 1.49 0 0 1-.08-.86a1.49 1.49 0 0 1 1.18-1.18a1.49 1.49 0 0 1 .86.08zM4.503 4a1.5 1.5 0 0 1-1.39-.93a1.49 1.49 0 0 1-.08-.86a1.49 1.49 0 0 1 1.18-1.18a1.49 1.49 0 0 1 .86.08A1.5 1.5 0 0 1 4.503 4zm8.06 6.56a1.5 1.5 0 0 1-2.45-.49a1.49 1.49 0 0 1-.08-.86a1.49 1.49 0 0 1 1.18-1.18a1.49 1.49 0 0 1 .86.08a1.499 1.499 0 0 1 .49 2.45z"/></svg></span></button>  
+      </div>
+    
+      </mat-toolbar>
+      <table mat-table [dataSource]="dataSource" matSort>
+    
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef > Sl No. </th>
+          <td mat-cell *matCellDef="let element; let i = index"> {{ (paginatorRef.pageIndex * paginatorRef.pageSize) + (i + 1) }} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.given_name | titlecase}} {{element.surname | titlecase}} </td>
+        </ng-container>
+    
+  
+        <ng-container matColumnDef="duplicatecount">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> No. of duplicate </th>
+          <td mat-cell *matCellDef="let element"> {{ (!ismergeAllRecordsClicked ? element.duplicatecount : 0) }} </td>
+        </ng-container>
+        
+  
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef > Actions </th>
+          <td mat-cell *matCellDef="let element">  
+           <button matTooltip="View Records" class="action_button" [disabled]="getMerged(element)" (click)="loadGraph(element)" ><span class="graph_display"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path fill="currentColor" d="M30.94 15.66A16.69 16.69 0 0 0 16 5A16.69 16.69 0 0 0 1.06 15.66a1 1 0 0 0 0 .68A16.69 16.69 0 0 0 16 27a16.69 16.69 0 0 0 14.94-10.66a1 1 0 0 0 0-.68ZM16 25c-5.3 0-10.9-3.93-12.93-9C5.1 10.93 10.7 7 16 7s10.9 3.93 12.93 9C26.9 21.07 21.3 25 16 25Z"/><path fill="currentColor" d="M16 10a6 6 0 1 0 6 6a6 6 0 0 0-6-6Zm0 10a4 4 0 1 1 4-4a4 4 0 0 1-4 4Z"/></svg></span></button>
+           <button matTooltip="Download Records" class="action_button" (click)="downloadRespectiveDuplicates(element)"><span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024"><path fill="currentColor" d="M505.7 661a8 8 0 0 0 12.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"/></svg></span></button>
+          </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+  
+    
+      <mat-paginator 
+      #paginatorRef
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons >
+      </mat-paginator>
+  </div>
+  
+  </div>
+  

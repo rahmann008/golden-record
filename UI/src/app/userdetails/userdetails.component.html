@@ -1,0 +1,61 @@
+<div class="details">
+    <div class="details_header">
+        Record details <span (click) ="closeUserDetails()"> X </span>
+    </div>
+
+    <div class="details_body">
+        <h2>{{ givenName | titlecase }} {{ surName | titlecase }}</h2>
+        <!-- <div class="contact_info">
+            <mat-icon>mail_outline</mat-icon>{{ userEmail }}
+        </div> -->
+
+        <!-- <div class="contact_info">
+            <mat-icon>call</mat-icon>{{ contactNumber }}
+        </div> -->
+        
+        <div class="contact_info">
+            <mat-icon>location_on</mat-icon><span>{{ streetNumber }}, {{ addressOne | titlecase }}, {{ addressTwo | titlecase }}, {{ suburb | titlecase }}, {{ stateName | titlecase }}</span>
+        </div>
+
+        <!-- <p class="labels">Customer Type</p>
+        <div class="labels_resp">
+            <mat-icon>person</mat-icon>{{ customerType }}
+        </div> -->
+
+        <p class="labels">Date Of Birth</p>
+        <div class="labels_resp">
+            <mat-icon>event</mat-icon>{{ dob | datepipe | date}}
+        </div>
+
+        <p class="labels">Social security ID</p>
+        <div class="labels_resp">
+            {{ socialsecurityID }}
+        </div>
+
+        <p class="labels">ZIP</p>
+        <div class="labels_resp">
+            {{ zipCode }}
+        </div>
+
+        <!-- <p class="labels">Phonetic First Name</p>
+        <div class="labels_resp">
+            {{ phoneticFirstName }}
+        </div> -->
+
+        <!-- <p class="labels">Phonetic Last Name</p>
+        <div class="labels_resp">
+            {{ phoneticLastName }}
+        </div> -->
+
+        <!-- <p class="labels">Normalized First Name</p>
+        <div class="labels_resp">
+            {{ normalizedFirstName }}
+        </div> -->
+
+        <!-- <p class="labels">Normalized Last Name</p>
+        <div class="labels_resp">
+            {{ normalizedLastName }}
+        </div> -->
+        
+    </div>
+</div>

@@ -1,0 +1,60 @@
+
+
+.duplicatetable{
+    margin-top: 20px;
+
+    .header{
+        display: flex;
+        justify-content: end;
+
+
+        button{
+            margin-right: 10px;
+            padding: 7px 10px;
+            outline: none;
+            // background: transparent;
+            border: 1px solid lightblue;
+            cursor: pointer;
+
+            &:disabled{
+                padding: 7px 10px;
+                border: none;
+                cursor: default;
+                // background: lightgrey;
+            }
+        }
+    }
+
+    table{
+        width: 100%; 
+
+        .tag{
+            background-color: lightblue;
+            border-radius: 10px;
+            padding: 1px 5px;
+            text-align: center;
+        }
+
+        .rowdesign:first-child{
+           background-color: #a8dab582;
+        }
+        
+    }
+}
+
+::ng-deep th.mat-header-cell, td.mat-cell, td.mat-footer-cell{
+    padding: 10px;
+}
+
+// ::ng-deep .mat-option-pseudo-checkbox.mat-pseudo-checkbox-checked{ 
+//     // display: none;
+//     background-color:lightblue; 
+    
+// }
+// ::ng-deep .mat-checkbox-checked .mat-checkbox-background {
+//    background-color: lightblue !important ;
+//  }
+
+.mat-paginator {
+    width: 100% !important;
+}

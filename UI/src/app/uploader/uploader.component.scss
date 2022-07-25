@@ -1,0 +1,125 @@
+
+
+.container{
+    background-color: var(--body_color);
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+
+    .upload_area{
+        background-color: var(--upload_area_background);
+        height: 50%;
+        width: 50%;
+        border-radius: 20px;
+        box-shadow: 0px 36px 33px  rgba(210, 227, 244, 1);  
+        display: grid;
+        place-items: center;
+        transform: translate(-15%);
+
+        .inner_upload_area{
+              width: 90%;
+              height: 230px;
+              border-radius: 10px;
+              border: 2px dashed var(--dashed_border);
+              position: relative;
+
+
+              img{
+                  width: 100px;
+                  position: absolute;
+                  left: 50%;
+                  transform: translate(-50%);
+                  margin-top: 30px;
+              }
+
+              .input_block{
+                position: absolute;
+                left: 50%;
+                top: 30%;
+                transform: translate(-50%, 80%);
+                text-align: center;
+
+                  input{
+                    display: none;
+                  }
+
+                  .uploader_button{
+                      background-color: transparent;
+                      border: 0;
+                      font-size: 14px;
+                      color: var(--uploader_color);
+                      text-decoration: underline;
+                      cursor: pointer;
+                  }
+
+                  .supported_type{
+                      font-size: 12px;
+                      color: var(--support_text);
+                  }
+
+              }
+        }
+
+        .progress{
+                 
+              background-color: var(--progressbar_background);
+              height: 60px;
+              width: 80%;
+              display: none;
+              border-radius: 8px;
+              margin-top: 20px;
+              margin-bottom: -18px;
+              position: relative;
+
+
+             .progress_indication{
+                width: 90%;
+                margin: auto;
+                position: absolute;
+                top: 50%;
+                left: 5%;
+                transform: translate(0, -50%);
+             }
+
+
+            //  .check{
+            //     width: 100px;
+            //     height: 100px;
+            //     border-radius: 50%;
+            //     background-color: rgba(144,238,144, 0.1);
+            //     position: relative;
+
+            //     .check_mark{
+            //         width: 50px;
+            //         height: 50px;
+            //         border: 3px solid transparent;
+            //         border-radius: 50%;
+            //         border-left-color: rgb(18, 126, 18);
+            //         position: absolute;
+            //         top: 50%;
+            //         left: 50%;
+            //         transform: translate(-50%, -50%);
+            //         animation: rotate 1.2s infinite linear;
+            //     }
+
+            //     @keyframes rotate {
+            //         from{
+            //             transform: rotate(0deg);
+            //         }
+            //         to{
+            //             transform: rotate(359deg);
+            //         }
+            //     }
+            //  }
+
+        }
+    }
+
+    .upload_area_increase_height{
+        height: max-content;
+        transition: height 1s;
+        padding: 40px 0;
+    }
+}
+

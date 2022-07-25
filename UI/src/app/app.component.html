@@ -1,0 +1,18 @@
+
+
+<div class="main_area">
+  <mat-sidenav-container>
+    <mat-sidenav mode="side" opened class="sidenav">
+      <ul>
+        <li><a routerLink="/uploader" routerLinkActive="activeroutelink">Upload Files</a></li>
+        <li><a routerLink="/records" routerLinkActive="activeroutelink"  style="display: none;">Records</a></li>
+      </ul>
+  </mat-sidenav>
+    <mat-sidenav-content class="routingcomponent"> 
+      <app-header></app-header>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+
+  <app-userdetails *ngIf="isUserDetails" class="userdetail"></app-userdetails>

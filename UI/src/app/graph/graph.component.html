@@ -1,0 +1,19 @@
+
+
+<div class="graph_container">
+  <div class="graph_area">
+    <!-- <span (click)="goBackToRecord()"><mat-icon>keyboard_backspace</mat-icon></span> -->
+    <svg>
+      <defs>
+          <filter id="f1" x="0" y="0" width="200%" height="200%">
+            <feOffset result="offOut" in="SourceGraphic" dx="1" dy="1" />
+            <feGaussianBlur result="blurOut" in="offOut" stdDeviation="10" />
+            <feBlend in="SourceGraphic" in2="offOut" mode="normal" />
+          </filter>
+        </defs>
+  </svg>
+  </div>
+
+    <!-- <svg width="960" height="600"></svg> -->
+    <app-duplicaterecords (changed)="updateGraph($event)" [allRecords] = 'recordsForTable' [masterRecord]="masterRecordToDup"></app-duplicaterecords>
+</div>

@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="upload_area">
+  
+      <div class="inner_upload_area">
+        <img src="/assets/AspireLogo.png" alt="AspireNXT logo">
+        <div class="input_block">
+          <input type="file" multiple  accept=".gif,.jpg,.jpeg,.png,.doc,.docx,.xlsx,.PPTX,.pdf,.csv,.txt" onclick="this.value = null" class="file_uploader" enctype="multipart/form-data" (change)="onFileSelected($event)" #fileUploader>
+          <p>To extract unique records,<button class="uploader_button" (click)="fileUploader.click()">upload</button>your files</p>
+          <!-- <button mat-raised-button class="extract_button" (click)="extractUniqueRecords()">Extract</button> -->
+          <p class="supported_type">Supports: CSV</p>
+        </div>
+      </div>
+     
+      <div class="progress" [style.display]="isWaiting? 'block' : 'none'">
+
+        <p *ngIf="!isLoading"  class="progress_indication">Completed</p>
+
+        <div class="progress_indication" *ngIf="isLoading">
+          <p>Processing...</p>
+          <mat-progress-bar  mode="indeterminate"></mat-progress-bar>     
+        </div>
+  </div>
+  
+  </div>
+  </div>

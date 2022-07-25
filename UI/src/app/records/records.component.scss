@@ -1,0 +1,135 @@
+.graph_display{
+    font-size: 14px;
+    text-decoration: underline;
+}
+
+
+.search{
+    position: relative;
+    margin-right: 2%;
+    mat-icon{
+        font-size: 15px;
+        position: absolute;
+        top: 10px;
+        left: 7px;
+        color: lightgray;
+    }
+
+    .searchbox{
+        width: 25vw;
+        border: 1px solid rgba(62,65,115,0.2);
+        border-radius: 4px;
+        padding: 5px 25px;
+        outline: none;
+
+        ::placeholder{
+            color: red !important;
+        }
+    }
+}
+
+.commonactions{
+    display: flex;
+    margin-top: 4px;
+
+    .download_button{
+        margin-right: 5%;
+        background-color: transparent;
+        border: 1px solid #e4e7fa;
+        // border-radius: 50%;
+        cursor: pointer;
+        span{
+           color: rgba(62,65,115,255);
+           font-size: 18px;
+        }
+
+        &:disabled{
+            border: 1px solid lightgray;
+            cursor: auto;
+            span{
+                color: lightgrey;
+            }
+        }
+    }
+}
+
+.record_container{
+    width: 100vw;
+    padding: 70px;
+    // box-shadow: 0px 10px 15px 4px rgba(62,65,115,255);
+
+    // background-color: white;
+
+    .table_container{
+        width: 75vw;
+        box-shadow: 0 8px 6px -6px #d3dfec;
+
+    }
+
+    .table_name{
+        margin-right: 35%;
+        color: #040849;
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+
+    .action_button{
+        background: transparent;
+        border: none;
+        cursor: pointer;
+
+        span{
+            font-size: 16px;
+            color: rgba(4,8,73,255);
+        }
+
+        &:disabled{
+            // border: 1px solid lightgray;
+            border: none;
+            cursor: auto;
+            span{
+                color: lightgrey;
+            }
+    }
+}
+}
+
+::ng-deep .mat-paginator{
+    width: 75vw !important;
+
+}
+
+::ng-deep .mat-toolbar-single-row{
+    width: 100% !important;
+    background-color: white;
+    border-bottom: 1px solid lightgray;
+
+}
+
+table{
+    width: 75vw;
+    tr{          
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 37px;
+        height: 0;
+        color: #747474;
+        text-align: left;
+        // background-color: red;
+        
+        // th{
+        //     text-align: left;
+        // }
+    
+        // td{
+        //     text-align: right;
+        // }
+    }   
+}
+
+::ng-deep .mat-sort-header-container:not(.mat-sort-header-sorted) .mat-sort-header-arrow {
+    opacity: 0.54 !important;
+    transform: translateY(0px) !important;
+  }

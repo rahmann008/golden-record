@@ -1,0 +1,33 @@
+
+.closediv{
+    display: flex;
+    justify-content: end;
+    margin-bottom: 15px;
+    .close_button{
+
+       cursor: pointer;
+        }
+}
+
+
+.header{
+    display: flex;
+    justify-content: space-between;
+
+    button{
+        // background-color: lightblue;
+        line-height: 26px !important;
+        margin-left: 5px;
+        border: 1px solid lightblue;
+    }
+}
+
+table, th, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.compare_table{
+    width:100%; 
+    margin-top: 10px;
+}

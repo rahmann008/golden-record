@@ -1,0 +1,34 @@
+::ng-deep .node_style{
+    fill: white;
+    stroke: lightblue;
+    stroke-width: 1px;
+    // box-shadow: 2px 5px 10px rbga(210, 215, 211, 1);
+}
+
+::ng-deep .profile_picture{
+    fill: lightblue;
+}
+
+
+
+.svg_class{
+    transform: translate(-28%);
+}
+
+.graph_container{
+    padding: 50px 225px;
+    .graph_area{
+       background-color: white;
+    // box-shadow: 0px 10px 15px 4px rgba(62,65,115,255);
+    box-shadow: 0px 10px 15px 4px #d3dfec, 10px 0px 15px 4px #d3dfec;
+
+
+    .back{
+        width: 10px;
+      span{
+        font-size: 18px;
+      }
+    }
+    }
+    // transform: translate(-18%);
+}

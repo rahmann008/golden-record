@@ -1,0 +1,136 @@
+<div class="closediv">
+  <div class="close_button" mat-dialog-close>
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M20 20L4 4m16 0L4 20"/></svg>
+  </div>
+</div>
+
+<div class="header">
+  <mat-checkbox (change)="hideRowsWithSimilarValue($event.checked)">Show differences only</mat-checkbox> 
+  <div>
+    <button mat-stroked-button type="submit" (click)="saveChanges()" *ngIf="isEditClicked" [disabled]="!enableSave">Save</button>
+    <button mat-stroked-button (click)="enableEdit()">Edit</button>
+  </div>
+</div>
+
+
+  <form [formGroup]="editForm">
+  <table class="compare_table">
+    <tr>
+        <ng-container *ngIf="!toBeDisplayed['given_name']">
+      <th>First Name:</th>
+      <td class="right" *ngFor="let i of items; let idx = index"> 
+        <span [hidden]="idx === 0 && isEditClicked">{{i.given_name}}</span>
+        <div *ngIf="idx === 0 && isEditClicked">
+          <input type="text"  formControlName="firstName"  #fname (keyup)="isChanged($event, fname)">
+        </div>
+      </td>
+    </ng-container>
+    </tr>
+    <tr>
+        <ng-container *ngIf="!toBeDisplayed['surname']">
+      <th>Last Name:</th>
+      <td class="right" *ngFor="let i of items ; let idx = index">
+        <span [hidden]="idx === 0 && isEditClicked">{{i.surname}}</span>
+        <div *ngIf="idx === 0 && isEditClicked">
+          <input type="text" formControlName="lastName" #lname (keyup)="isChanged($event, lname)">
+        </div>
+      </td>
+    </ng-container>
+    </tr>
+    <tr>
+      <ng-container *ngIf="!toBeDisplayed['street_number']">
+      <th>Street No:</th>
+      <td class="right" *ngFor="let i of items; let idx = index">
+        <span [hidden]="idx === 0 && isEditClicked">{{i.street_number}}</span>
+        <div *ngIf="idx === 0 && isEditClicked">
+          <input type="text" formControlName="streetNo" #streetno (keyup)="isChanged($event, streetno)">
+        </div>
+      </td>
+      </ng-container>
+    </tr>
+
+    <tr>
+        <ng-container *ngIf="!toBeDisplayed['address_1']">
+        <th>Street Name:</th>
+        <td class="right" *ngFor="let i of items; let idx = index">
+          <span [hidden]="idx === 0 && isEditClicked">{{i.address_1}}</span>
+          <div *ngIf="idx === 0 && isEditClicked">
+            <input type="text" formControlName="streetName" #streetname (keyup)="isChanged($event, streetname)">
+          </div>
+        </td>
+        </ng-container>
+      </tr>
+
+      <tr>
+        <ng-container *ngIf="!toBeDisplayed['address_2']">
+        <th>Locality:</th>
+        <td class="right" *ngFor="let i of items; let idx = index">
+          <span [hidden]="idx === 0 && isEditClicked">{{i.address_2}}</span>
+          <div *ngIf="idx === 0 && isEditClicked">
+            <input type="text" formControlName="locality" #locality (keyup)="isChanged($event, locality)">
+          </div>
+        </td>
+        </ng-container>
+      </tr>
+
+      <tr>
+        <ng-container *ngIf="!toBeDisplayed['suburb']">
+        <th>Suburb:</th>
+        <td class="right" *ngFor="let i of items; let idx = index">
+          <span [hidden]="idx === 0 && isEditClicked">{{i.suburb}}</span>
+          <div *ngIf="idx === 0 && isEditClicked">
+            <input type="text" formControlName="suburb" #suburb (keyup)="isChanged($event, suburb)">
+          </div>
+        </td>
+        </ng-container>
+      </tr>
+
+      <tr>
+        <ng-container *ngIf="!toBeDisplayed['postcode']">
+        <th>ZIP:</th>
+        <td class="right" *ngFor="let i of items; let idx = index">
+          <span [hidden]="idx === 0 && isEditClicked">{{i.postcode}}</span>
+          <div *ngIf="idx === 0 && isEditClicked">
+            <input type="text" formControlName="zip" #zip (keyup)="isChanged($event, zip)">
+          </div>
+        </td>
+        </ng-container>
+      </tr>
+
+      <tr>
+        <ng-container *ngIf="!toBeDisplayed['state']">
+        <th>State:</th>
+        <td class="right" *ngFor="let i of items; let idx = index">
+          <span [hidden]="idx === 0 && isEditClicked">{{i.state}}</span>
+          <div *ngIf="idx === 0 && isEditClicked">
+            <input type="text" formControlName="state" #state (keyup)="isChanged($event, state)">
+          </div>
+        </td>
+        </ng-container>
+      </tr>
+
+      <tr>
+        <ng-container *ngIf="!toBeDisplayed['date_of_birth']">
+        <th>DOB:</th>
+        <td class="right" *ngFor="let i of items; let idx = index">
+          <span [hidden]="idx === 0 && isEditClicked">{{i.date_of_birth | datepipe | date}}</span>
+          <div *ngIf="idx === 0 && isEditClicked">
+            <input type="text" formControlName="dob" #dob (keyup)="isChanged($event, dob)">
+          </div>
+        </td>
+        </ng-container>
+      </tr>
+
+      <tr>
+        <ng-container *ngIf="!toBeDisplayed['soc_sec_id']">
+        <th>Social Security Id:</th>
+        <td class="right" *ngFor="let i of items; let idx = index">
+          <span [hidden]="idx === 0 && isEditClicked">{{i.soc_sec_id}}</span>
+          <div *ngIf="idx === 0 && isEditClicked">
+            <input type="text" formControlName="socialsecurityid" #socid (keyup)="isChanged($event, socid)">
+          </div>
+        </td>
+        </ng-container>
+      </tr>
+  </table>
+</form>
