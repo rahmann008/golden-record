@@ -24,7 +24,7 @@ echo "npm installed"
 cd UI/
 sudo npm install
 sudo npm install d3
-sudo chmod +x r.sh script.exp
+sudo chmod +x  script.exp ng-angular-materials.sh
 sudo ./script.exp
 echo "building the packages (frontend)"
 sudo ng build

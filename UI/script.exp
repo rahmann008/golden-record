@@ -43,7 +43,7 @@ if {$force_conservative} {
 
 
 set timeout -1
-spawn ./r.sh
+spawn ./ng-angular-materials.sh
 match_max 100000
 expect -exact "\[33mYour global Angular CLI version (14.1.0) is greater than your local version (12.2.17). The local Angular CLI version is used.\[39m\r
 \[33m\[39m\r
