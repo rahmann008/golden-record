@@ -14,6 +14,7 @@ nohup python3 ./backend/app.py >/dev/null 2>&1 &
 #FRONTEND
 sudo apt install nginx -y
 echo "nginx installed"
+sudo apt install expect -y
 sudo curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 sudo apt install nodejs -y
 echo "nodejs installed"
